@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Service
+metadata:
+  namespace: stockquote-ns
+  labels:
+    app: sq-service
+  name: sq-service
+spec:
+  type: NodePort
+  ports:
+  - port: 8080
+    protocol: TCP
+    targetPort: 8080
+    nodePort: 30007
+  selector:
+    app: sq-pod
